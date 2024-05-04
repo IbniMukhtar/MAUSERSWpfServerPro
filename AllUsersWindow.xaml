@@ -1,0 +1,44 @@
+﻿<Window x:Class="ServerProjectWPF.AllUsersWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AllUsersWindow" Height="500" Width="850">
+    <Window.Background>
+        <ImageBrush ImageSource="Images/bimg1.jpg"/>
+    </Window.Background>
+    <Border Margin="20" Padding="10" Background="#F5F5F5" CornerRadius="20" Height="400" Width="800" BorderBrush="#CCCCCC" BorderThickness="1" >
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+
+            <StackPanel>
+                <!-- Header -->
+                <TextBlock Text="Users" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" Foreground="#212121" Margin="0 0 0 20"/>
+
+                <!-- ListView to display users -->
+                <ListView x:Name="lvUsers" Margin="0 15" Background="#E3F2FD" BorderBrush="Transparent" BorderThickness="0" ScrollViewer.VerticalScrollBarVisibility="Auto" Padding="10">
+                    <ListView.View>
+                        <GridView>
+                            <!-- Edit and Delete buttons for each row -->
+                            <GridViewColumn>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button Content="Edit" Click="EditButton_Click" />
+                                            <Button Content="Delete" Click="DeleteButton_Click" Margin="5 0 0 0"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <!-- User data columns -->
+                            <GridViewColumn Header="ID" DisplayMemberBinding="{Binding ID}" Width="Auto"/>
+                            <GridViewColumn Header="FullName" DisplayMemberBinding="{Binding FullName}" Width="Auto"/>
+                            <GridViewColumn Header="Username" DisplayMemberBinding="{Binding Username}" Width="Auto"/>
+                            <GridViewColumn Header="Email" DisplayMemberBinding="{Binding Email}" Width="Auto"/>
+                            <GridViewColumn Header="MobileNo" DisplayMemberBinding="{Binding MobileNo}" Width="Auto"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+
+            </StackPanel>
+        </ScrollViewer>
+    </Border>
+</Window>
